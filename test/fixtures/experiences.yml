@@ -6,6 +6,7 @@ one:
   job_title: MyString
   company_name: MyString
   details: MyText
+  student_id: 1
 
 two:
   start_date: 2023-12-18
@@ -13,3 +14,4 @@ two:
   job_title: MyString
   company_name: MyString
   details: MyText
+  student_id: 1
