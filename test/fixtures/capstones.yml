@@ -5,11 +5,11 @@ one:
   description: MyText
   url: MyString
   screenshot: MyString
-  user_id: 1
+  student_id: 1
 
 two:
   capstone_name: MyString
   description: MyText
   url: MyString
   screenshot: MyString
-  user_id: 1
+  student_id: 1
