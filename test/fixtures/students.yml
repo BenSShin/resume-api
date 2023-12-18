@@ -12,6 +12,7 @@ one:
   resume_url: MyString
   github_url: MyString
   photo: MyString
+  password_digest: MyString
 
 two:
   first_name: MyString
@@ -25,3 +26,4 @@ two:
   resume_url: MyString
   github_url: MyString
   photo: MyString
+  password_digest: MyString
