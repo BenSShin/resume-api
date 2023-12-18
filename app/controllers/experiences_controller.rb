@@ -1,3 +1,4 @@
 class ExperiencesController < ApplicationController
-  change_column 
+  def index
+  end
 end

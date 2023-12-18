@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   # experience routes
-  get "/experience" => "experience#index"
-  get "/experience" => "experience#index"
-  get "/experience" => "experience#index"
-  get "/experience" => "experience#index"
+  get "/experiences" => "experiences#index"
+  get "/experiences/:id" => "experiences#show"
+  post "/experiences" => "experiences#create"
+  patch "/experiences/:id" => "experiences#update"
+  delete "/experiences/:id" => "experiences#destroy"
 end
