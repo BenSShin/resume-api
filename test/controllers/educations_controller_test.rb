@@ -1,9 +1,13 @@
-# require "test_helper"
+# # require "test_helper"
 
+# # class EducationsControllerTest < ActionDispatch::IntegrationTest
+# #   test "index" do
+# #     get "/educations.json"
+# #     assert_response 200
 # class EducationsControllerTest < ActionDispatch::IntegrationTest
-#   test "index" do
-#     get "/educations.json"
-#     assert_response 200
+#   # test "index" do
+#   #   get "/educations.json"
+#   #   assert_response 200
 
 #     data = JSON.parse(response.body)
 #     assert_equal Education.count, data.length
@@ -24,19 +28,19 @@
 #     assert_equal ["id", "student_id", "start_date", "end_date", "degree", "university_name", "details", "created_at", "updated_at"], data.keys
 #   end
 
-#   test "update" do
-#     education = Education.first
-#     patch "/educations/#{education.id}.json", params: { degree: "Updated degree" }
-#     assert_response 200
+  test "update" do
+    education = Education.first
+    patch "/educations/#{education.id}.json", params: { degree: "Updated degree" }
+    assert_response 200
 
-#     data = JSON.parse(response.body)
-#     assert_equal "Updated degree", data["degree"]
-#   end
+    data = JSON.parse(response.body)
+    assert_equal "Updated degree", data["degree"]
+  end
 
-#   test "destroy" do
-#     assert_difference "Education.count", -1 do
-#       delete "/educations/#{Education.first.id}.json"
-#       assert_response 200
-#     end
-#   end
-# end
+  test "destroy" do
+    assert_difference "Education.count", -1 do
+      delete "/educations/#{Education.first.id}.json"
+      assert_response 200
+    end
+  end
+end
