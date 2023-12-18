@@ -11,7 +11,7 @@ class CapstonesController < ApplicationController
 
   def create
     @capstone = Capstone.new(
-      name: params["name"],
+      capstone_name: params["capstone_name"],
       description: params["description"],
       url: params["url"],
       screenshot: params["screenshot"],
@@ -28,7 +28,7 @@ class CapstonesController < ApplicationController
   def update
     @capstone = Capstone.find_by(id: params["id"])
     @capstone.update(
-      name: params["name"] || @capstone.name,
+      capstone_name: params["capstone_name"] || @capstone.capstone_name,
       description: params["description"] || @capstone.description,
       url: params["url"] || @capstone.url,
       screenshot: params["screenshot"] || @capstone.screenshot,
