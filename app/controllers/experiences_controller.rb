@@ -20,7 +20,7 @@ class ExperiencesController < ApplicationController
       job_title: params[:job_title],
       company_name: params[:company_name],
       details: params[:details],
-      student_id: student_id[:student_id],
+      student_id: params[:student_id],
     })
     if @experience.valid?
       @experience.save
@@ -47,10 +47,10 @@ class ExperiencesController < ApplicationController
       details: params[:details] || @experience.details,
       student_id: params[:student_id] || @experience.student_id,
     )
-    if @reservation.valid?
+    if @experience.valid?
       render :show
     else
-      render json: { errors: @reservation.errors.full_messages }, status: :unprocessable_entity
+      render json: { errors: @experience.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
