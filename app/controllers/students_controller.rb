@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
   def index
-    @students = Student.all
+    @students = Student.includes(:capstones, :educations, :experiences, :skills).all
     render :index
   end
 
@@ -42,6 +42,11 @@ class StudentsController < ApplicationController
       github_url: params[:github_url] || @student.github_url,
       photo: params[:photo] || @student.photo,
     )
+    if params[:password]
+      @student.update(
+        password: params[:password],
+      )
+    end
     render :show
   end
 
