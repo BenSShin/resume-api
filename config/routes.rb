@@ -15,4 +15,10 @@ Rails.application.routes.draw do
 
   # For Login
   post "/sessions" => "sessions#create"
+  
+  # experience routes
+  get "/experience" => "experience#index"
+  get "/experience" => "experience#index"
+  get "/experience" => "experience#index"
+  get "/experience" => "experience#index"
 end
