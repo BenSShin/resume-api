@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+
+  #education routes
+  get "/educations" => "educations#index"
+  post "/educations" => "educations#create"
+  post "/educations/:id" => "educations#show"
+  patch "/educations/:id" => "educations#update"
+  delete "/educations/:id" => "educations#destroy"
+
   # For Capstones
   get "/capstones/:id" => "capstones#show"
   get "/capstones" => "capstones#index"
