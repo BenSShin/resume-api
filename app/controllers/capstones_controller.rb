@@ -1,4 +1,6 @@
 class CapstonesController < ApplicationController
+  before_action :authenticate_user, except: [:index, :show]
+  
   def index
     @capstones = Capstone.all
     render :index
@@ -32,7 +34,6 @@ class CapstonesController < ApplicationController
       description: params["description"] || @capstone.description,
       url: params["url"] || @capstone.url,
       screenshot: params["screenshot"] || @capstone.screenshot,
-      student_id: params["student_id"] || @capstone.student_id,
     )
     if @capstone.valid?
       render :show

@@ -3,6 +3,10 @@ json.last_name student.last_name
 json.email student.email
 json.phone_number student.phone_number
 json.short_bio student.short_bio
+json.capstones student.capstones
+json.educations student.educations
+json.experiences student.experiences
+json.skills student.skills
 json.linkedin_url student.linkedin_url
 json.twitter_handle student.twitter_handle
 json.personal_url student.personal_url
