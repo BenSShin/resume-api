@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema[7.0].define(version: 2023_12_18_181246) do
-=======
 ActiveRecord::Schema[7.0].define(version: 2023_12_18_185212) do
->>>>>>> af337588c658af49c9ab478a01a3b7093dea09f9
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,11 +19,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_18_185212) do
     t.text "description"
     t.string "url"
     t.string "screenshot"
-<<<<<<< HEAD
-    t.integer "user_id"
-=======
     t.integer "student_id"
->>>>>>> af337588c658af49c9ab478a01a3b7093dea09f9
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -38,11 +30,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_18_185212) do
     t.string "degree"
     t.string "university_name"
     t.text "details"
-<<<<<<< HEAD
-    t.integer "user_id"
-=======
     t.integer "student_id"
->>>>>>> af337588c658af49c9ab478a01a3b7093dea09f9
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -53,22 +41,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_18_185212) do
     t.string "job_title"
     t.string "company_name"
     t.text "details"
-<<<<<<< HEAD
-    t.integer "user_id"
-=======
     t.integer "student_id"
->>>>>>> af337588c658af49c9ab478a01a3b7093dea09f9
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "skills", force: :cascade do |t|
     t.string "skill_name"
-<<<<<<< HEAD
-    t.integer "user_id"
-=======
     t.integer "student_id"
->>>>>>> af337588c658af49c9ab478a01a3b7093dea09f9
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -87,10 +67,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_18_185212) do
     t.string "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-<<<<<<< HEAD
-=======
     t.string "password_digest"
->>>>>>> af337588c658af49c9ab478a01a3b7093dea09f9
   end
 
 end
