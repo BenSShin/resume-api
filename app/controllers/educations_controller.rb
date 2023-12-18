@@ -6,6 +6,7 @@ class EducationsController < ApplicationController
 
   def create
     @education = Education.create(
+      student_id: params[:student_id],
       start_date: params[:start_date],
       end_date: params[:end_date],
       degree: params[:degree],
@@ -18,5 +19,24 @@ class EducationsController < ApplicationController
   def show
     @education = Education.find_by(id: params[:id])
     render :show
+  end
+
+  def update
+    @education = Education.find_by(id: params[:id])
+    @education.update(
+      student_id: params[:student_id] || @education.student_id,
+      start_date: params[:start_date] || @education.start_date,
+      end_date: params[:end_date] || @education.end_date,
+      degree: params[:degree] || @education.degree,
+      university_name: params[:university_name] || @education.university_name,
+      details: params[:details] || @education.details,
+    )
+    render :show
+  end
+
+  def destroy
+    @education = Education.find_by(id: params[:id])
+    @education.destroy
+    render json: { message: "Education destroyed successfully" }
   end
 end
