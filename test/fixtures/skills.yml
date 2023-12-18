@@ -2,8 +2,8 @@
 
 one:
   skill_name: MyString
-  user_id: 1
+  student_id: 1
 
 two:
   skill_name: MyString
-  user_id: 1
+  student_id: 1
