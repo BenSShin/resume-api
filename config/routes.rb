@@ -12,4 +12,7 @@ Rails.application.routes.draw do
   post "/skills" => "skills#create"
   patch "/skills/:id" => "skills#update"
   delete "/skills/:id" => "skills#destroy"
+
+  # For Login
+  post "/sessions" => "sessions#create"
 end
