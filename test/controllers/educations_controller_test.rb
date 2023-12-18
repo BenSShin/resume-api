@@ -1,8 +1,16 @@
 require "test_helper"
 
 class EducationsControllerTest < ActionDispatch::IntegrationTest
+  setup do
+    @user = Student.create(first_name: "Steven", last_name: "Ungaro", email: "steven@test.com", phone_number: "555-222-1234", short_bio: "Blah blah blah blah blah blah blah Steven is great blah blah blah.", linkedin_url: "stevenlinkedin.url", twitter_handle: "@steventwitter", personal_url: "steven.url", resume_url: "stevenresume.url", github_url: "stevengit.url", photo: "https://freerangestock.com/sample/2230/childs-drawing-of-happy-face.jpg", password: "password1"),
+    @education = Education.create(student_id: @user.id)
+    post "/sessions.json", params: { email: "test@test.com", password: "password" }
+    data = JSON.parse(response.body)
+    @jwt = data["jwt"]
+  end
+
   test "index" do
-    get "/educations.json"
+    get "/educations.json", headers: { "Authorization" => "Bearer #{@jwt}" }
     assert_response 200
 
     data = JSON.parse(response.body)
@@ -11,13 +19,14 @@ class EducationsControllerTest < ActionDispatch::IntegrationTest
 
   test "create" do
     assert_difference "Education.count", 1 do
-      post "/educations.json", params: { student_id: 1, start_date: 2022 / 12 / 06, end_date: 2024 / 01 / 01, degree: "degree", university_name: "university", details: "details" }
+      post "/educations.json", params: { student_id: Education.first.id, start_date: 2022 / 12 / 06, end_date: 2024 / 01 / 01, degree: "degree", university_name: "university", details: "details" },
+                               headers: { "Authorization" => "Bearer #{@jwt}" }
       assert_response 200
     end
   end
 
   test "show" do
-    get "/educations/#{Education.first.id}.json"
+    get "/educations/#{Education.first.id}.json", headers: { "Authorization" => "Bearer #{@jwt}" }
     assert_response 200
 
     data = JSON.parse(response.body)
@@ -26,7 +35,9 @@ class EducationsControllerTest < ActionDispatch::IntegrationTest
 
   test "update" do
     education = Education.first
-    patch "/educations/#{education.id}.json", params: { degree: "Updated degree" }
+    patch "/educations/#{education.id}.json",
+          params: { degree: "Updated degree" },
+          headers: { "Authorization" => "Bearer #{@jwt}" }
     assert_response 200
 
     data = JSON.parse(response.body)
@@ -35,7 +46,7 @@ class EducationsControllerTest < ActionDispatch::IntegrationTest
 
   test "destroy" do
     assert_difference "Education.count", -1 do
-      delete "/educations/#{Education.first.id}.json"
+      delete "/educations/#{Education.first.id}.json", headers: { "Authorization" => "Bearer #{@jwt}" }
       assert_response 200
     end
   end
