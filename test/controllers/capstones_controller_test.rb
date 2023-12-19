@@ -7,6 +7,12 @@ class CapstonesControllerTest < ActionDispatch::IntegrationTest
     data = JSON.parse(response.body)
     @jwt = data["jwt"]
   end
+  test "create" do
+    assert_difference "Capstone.count", 1 do
+      post "/capstones.json", params: { capstone_name: "test", description: "test", url: "test", screenshot: "test" }, headers: { "Authorization" => "Bearer #{@jwt}" }
+      assert_response 200
+    end
+  end
   test "index" do
     get "/capstones.json"
     assert_response 200
