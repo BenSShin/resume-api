@@ -1,6 +1,6 @@
 class SkillsController < ApplicationController
   before_action :authenticate_user, except: [:index, :show]
-  
+
   def index
     @skills = Skill.all
     render :index
@@ -28,7 +28,7 @@ class SkillsController < ApplicationController
     @skill = Skill.find_by(id: params["id"])
     @skill.update(
       skill_name: params["skill_name"] || @skill.skill_name,
-      student_id: @skill.student_id,
+      student_id: current_user.id,
     )
     if @skill.valid?
       render :show

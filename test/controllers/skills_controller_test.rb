@@ -28,18 +28,18 @@
 #     get "/skills/#{Skill.first.id}.json", headers: { "Authorization" => "Bearer #{@jwt}" }
 #     assert_response 200
 
-#     data = JSON.parse(response.body)
-#     assert_equal ["skill", "created_at", "updated_at"], data.keys
-#   end
+    data = JSON.parse(response.body)
+    assert_equal ["id", "skill", "created_at", "updated_at"], data.keys
+  end
 
 #   test "update" do
 #     skill = Skill.first
 #     patch "/skills/#{skill.id}.json", headers: { "Authorization" => "Bearer #{@jwt}" }, params: { skill_name: "Updated skill", student_id: Student.first.id }
 #     assert_response 200
 
-#     data = JSON.parse(response.body)
-#     assert_equal "Updated skill", data["skill_name"]
-#   end
+    data = JSON.parse(response.body)
+    assert_equal "Updated skill", data["skill"]
+  end
 
 #   test "destroy" do
 #     assert_difference "Skill.count", -1 do
