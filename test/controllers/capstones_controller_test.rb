@@ -14,6 +14,13 @@ class CapstonesControllerTest < ActionDispatch::IntegrationTest
     data = JSON.parse(response.body)
     assert_equal Capstone.count, data.length
   end
+  test "show" do
+    get "/capstones/#{Capstone.first.id}.json"
+    assert_response 200
+
+    data = JSON.parse(response.body)
+    assert_equal ["id", "capstone_name", "description", "url", "screenshot", "student", "created_at", "updated_at"], data.keys
+  end
   test "update" do
     capstone = Capstone.first
     patch "/capstones/#{capstone.id}.json", params: { capstone_name: "Updated name" }, headers: { "Authorization" => "Bearer #{@jwt}" }
@@ -21,5 +28,11 @@ class CapstonesControllerTest < ActionDispatch::IntegrationTest
 
     data = JSON.parse(response.body)
     assert_equal "Updated name", data["capstone_name"]
+  end
+  test "destroy" do
+    assert_difference "Capstone.count", -1 do
+      delete "/capstones/#{Capstone.first.id}.json", headers: { "Authorization" => "Bearer #{@jwt}" }
+      assert_response 200
+    end
   end
 end
