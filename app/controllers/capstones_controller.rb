@@ -34,6 +34,7 @@ class CapstonesController < ApplicationController
       description: params["description"] || @capstone.description,
       url: params["url"] || @capstone.url,
       screenshot: params["screenshot"] || @capstone.screenshot,
+      student_id: current_user.id,
     )
     if @capstone.valid?
       render :show
