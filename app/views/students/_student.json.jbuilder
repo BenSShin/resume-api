@@ -4,10 +4,10 @@ json.last_name student.last_name
 json.email student.email
 json.phone_number student.phone_number
 json.short_bio student.short_bio
-json.capstones student.capstones
-json.educations student.educations
-json.experiences student.experiences
-json.skills student.skills
+json.capstones student.capstones, partial: "capstones/capstone", as: :capstone
+json.educations student.educations, partial: "educations/education", as: :education
+json.experiences student.experiences, partial: "experiences/experience", as: :experience
+json.skills student.skills, partial: "skills/skill", as: :skill
 json.linkedin_url student.linkedin_url
 json.twitter_handle student.twitter_handle
 json.personal_url student.personal_url
